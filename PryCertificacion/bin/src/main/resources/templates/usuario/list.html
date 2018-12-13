@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="container">
+		<br />
+		<div class="card col-md-12">
+			<div class="card-body">
+				<div class="form-group row">
+					<div class="content col-sm-1">
+						<i class="far fa-list-alt fa-2x"></i>
+					</div>
+					<h3 class="card-title col-sm-6" th:text="${title}"></h3>
+					<div class="col-sm-4"></div>
+				</div>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th><i class="fas fa-book-open fa-2x"></i></th>
+							<th><i class="fas fa-book fa-2x"></i></th>
+							<th><i class="fas fa-hashtag fa-2x"></i></th>
+							<th><i class="fas fa-clock fa-2x"></i></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Email</th>
+							<th>Fecha de Nacimiento</th>
+							<th>Rol</th>
+							<th>Observacion</th>
+							<th><a class="btn btn-sm btn-success"
+								th:href="@{/usuario/form}"><i class="fas fa-plus"></i>&nbsp;Nuevo</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="us: ${usuarios}">
+						<td th:text="${us.nombre}"></td>
+						<td th:text="${us.apellido}"></td>
+						<td th:text="${us.email}"></td>
+						<td th:text="${us.fechanacimiento}"></td>
+						<td th:text="${us.rol}"></td>
+						<td th:text="${us.observacion}"></td>
+							<td><a class="btn btn-sm btn-warning"
+								th:href="@{/usuario/form/} + ${us.idusuario}"><i
+									class="fas fa-edit"></i></a> <a class="btn btn-sm btn-primary"
+								th:href="@{/usuario/card/} + ${us.idusuario}"><i
+									class="fas fa-eye"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

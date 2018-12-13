@@ -11,7 +11,7 @@ public class IndexController {
 
 	@GetMapping("/")
 	public String index(Model model) {
-		model.addAttribute("title", "Certificación II");
+		model.addAttribute("title", "Cambio WERTYUILKJHGC");
 		model.addAttribute("framework", "Proyecto de Certificación II");		
 		model.addAttribute("description", "Creacion de una plataforma de reproduccion de videos usando el modelo MVC, el frameword Spring-Boot, con JPA y Thymeleaf");
 		return "index";

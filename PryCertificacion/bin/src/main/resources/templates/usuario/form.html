@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout :: head"></head>
+	<body>
+		<header th:replace="layout :: header"></header>
+		<div class="container">
+			<br />
+			<div class="card col-md-12">
+				<div class="card-body">
+					<div class="form-group row">
+						<div class="content col-sm-1">
+							<i class="far fa-plus-square fa-2x"></i>
+						</div>
+						<h3 class="card-title col-sm-10" th:text="${title}"></h3>
+						<div class="col-sm-1"></div>
+					</div>
+					<hr />
+					<form th:action="@{/usuario/form}" th:object="${usuario}" method="post">
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-id-card"></i>
+								<label for="nombre" class="h5 col-form-label">&nbsp;Nombre:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="text" th:field="*{nombre}" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-book-open"></i>
+								<label for="apellido" class="h5 col-form-label">&nbsp;Apellido:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="text" th:field="*{apellido}" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-at"></i>
+								<label for="email" class="h5 col-form-label">&nbsp;Email:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="email" th:field="*{email}" />							
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-calendar-alt"></i>
+								<label for="fechanacimiento" class="h5 col-form-label">&nbsp;Fecha Nacimiento:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="date" th:field="*{fechanacimiento}" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-at"></i>
+								<label for="rol" class="h5 col-form-label">&nbsp;Rol:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="text" th:field="*{rol}" />							
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-at"></i>
+								<label for="password" class="h5 col-form-label">&nbsp;Contraseña:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="password" th:field="*{password}" />							
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="content col-sm-3">
+								<i class="fas fa-at"></i>
+								<label for="observacion" class="h5 col-form-label">&nbsp;Observacion:</label>
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="text" th:field="*{observacion}" />							
+							</div>
+						</div>			
+						<hr />
+						<div class="form-group row">
+							<div class="col-sm-4">
+								<a class="btn btn-danger" th:href="@{/usuario/list}"><i
+									class="fas fa-minus-circle"></i>&nbsp;Cancelar</a>
+								<button class="btn btn-success" type="submit">
+									<i class="fas fa-plus-circle"></i>&nbsp;Guardar
+								</button>
+							</div>
+						</div>
+						<input type="hidden" th:field="*{idusuario}" />
+					</form>
+				</div>
+			</div>	
+		</div>
+		<footer th:replace="layout :: footer"></footer>
+	</body>
+</html>
